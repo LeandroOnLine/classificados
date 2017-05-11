@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  price: 9.99
+  category_id: 1
+  sub_category_id: 1
+  login_id: 1
+  expire_date: 2017-04-26 16:40:19
+
+two:
+  title: MyString
+  description: MyText
+  price: 9.99
+  category_id: 1
+  sub_category_id: 1
+  login_id: 1
+  expire_date: 2017-04-26 16:40:19

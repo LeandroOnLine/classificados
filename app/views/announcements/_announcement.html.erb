@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Desde</th> 
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.title %></td>
+        <td><%= announcement.description %></td>
+        <td><%= "R$"+ announcement.price.to_s %></td>
+        <td><%= announcement.created_at.strftime("%d/%m/%Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

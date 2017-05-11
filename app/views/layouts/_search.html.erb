@@ -1,0 +1,9 @@
+<div class="block">
+<%= form_tag announcements_path, method: :get, class: "navbar-form navbar-right " do %>
+  <div class="form-group">
+    <%= link_to 'Criar anúncio', new_announcement_path, class: "btn btn-primary navbar-btn navbar-toggler navbar-toggler-left" %>
+    <%= text_field_tag :search_name, @search_name, placeholder: 'Digite aqui sua pesquisa', class: "form-control" %>
+    <%= button_to "Buscar", nil, class: "btn btn-default" %>  
+  </div>
+<% end %>
+</div>

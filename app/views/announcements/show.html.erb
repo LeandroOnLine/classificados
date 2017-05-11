@@ -1,0 +1,38 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @announcement.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @announcement.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @announcement.price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @announcement.category_id %>
+</p>
+
+<p>
+  <strong>Sub category:</strong>
+  <%= @announcement.sub_category_id %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @announcement.login_id %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @announcement.expire_date %>
+</p>

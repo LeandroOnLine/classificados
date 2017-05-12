@@ -6,8 +6,9 @@ class AnnouncementsController < ApplicationController
   # GET /announcements.json
   def index    
     search_name = params[:search_name]
-         
-   if search_name != ""
+ 
+    set_category     
+    if search_name != ""
       @announcements = Announcement.where "UPPER(title) like UPPER(?)", "%#{search_name.upcase}%"
     else
       @announcements = Announcement.order("created_at DESC").limit 5

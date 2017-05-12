@@ -37,8 +37,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt'
 
-gem 'pry'
-
 gem "twitter-bootstrap-rails"
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
@@ -51,6 +49,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'better_errors'
+  gem 'pry'
   gem 'pry-rails'
   gem 'pry-awesome_print'
   gem 'pry-byebug'  

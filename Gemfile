@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt'
 
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 

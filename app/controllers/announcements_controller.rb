@@ -6,10 +6,14 @@ class AnnouncementsController < ApplicationController
   # GET /announcements.json
   def index    
     search_name = params[:search_name]
- 
+    selected_category = params[:category]
+
+    @search_name = search_name if search_name != nil
+    
     set_category     
     if search_name != ""
-      @announcements = Announcement.where "UPPER(title) like UPPER(?)", "%#{search_name.upcase}%"
+      @announcements = Announcement.where "UPPER(title) like UPPER(?) AND category_id = ?",
+      "%#{search_name.upcase}%, #{selected_category} "
     else
       @announcements = Announcement.order("created_at DESC").limit 5
     end
@@ -47,7 +51,7 @@ class AnnouncementsController < ApplicationController
         format.json { render :show, status: :created, location: @announcement }
       else
         format.html { render :new }
-        format.json { render json: @announcement.errors, status: :unprocessable_entity }
+        format.json { render json: @announcement.errors, status: :unprocessable_entity }        
       end
     end
   end

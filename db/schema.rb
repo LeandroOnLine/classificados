@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20170429142934) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "logins", force: :cascade do |t|
+    t.string   "email",           limit: 250
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "password_digest"
+    t.string   "phone",           limit: 20
+    t.string   "user_name",       limit: 100
+  end
+
   create_table "sub_categories", force: :cascade do |t|
     t.string   "sub_category_name"
     t.integer  "category_id"

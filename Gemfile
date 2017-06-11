@@ -47,12 +47,12 @@ gem 'rails_admin', '~> 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  #gem 'byebug', platform: :mri
   gem 'better_errors'
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-awesome_print'
-  gem 'pry-byebug'  
+  #gem 'pry-byebug'
 end
 
 group :development do

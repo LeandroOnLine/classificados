@@ -19,3 +19,22 @@
     <% end %>
   </tbody>
 </table>
+
+<% @announcements.each do |announcement| %>
+  <div class="container">
+	  <div class="row">
+  	  <div class="col-sm-3">
+        <div class="card">
+          <img class="card-img-top" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=250×100-1&w=250&h=100" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">><%= announcement.title %></h4>
+            <p class="card-text"><%= announcement.description %></p>
+            <p class="card-text"><%= "R$"+ announcement.price.to_s %></p>
+            <p class="card-text"><%= announcement.created_at.strftime("%d/%m/%Y") %> </p>
+            <a href="#" class="btn btn-primary">Visualizar</a>
+          </div>
+        </div>
+      </div>
+	  </div> <!-- row -->
+  </div> <!-- container -->
+<% end %>

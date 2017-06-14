@@ -2,8 +2,8 @@
   <% if announcement.errors.any? %>
     <div id="error_explanation">
 
-      <h2><%= pluralize(announcement.errors.count, "error") %>
-              prohibited this announcement from being saved:
+      <h2><%= pluralize(announcement.errors.count, "erros") %>
+        Anúncio não pode ser salvo.
       </h2>
 
       <ul>
@@ -15,40 +15,42 @@
   <% end %>
 
   <div class="container">
-    <div class="form-group">
-      <%= f.label "Título" %>
-      <%= f.text_field :title, class: "form-control" %>
+    <div class="row row-centered">
+      <div class="col-md-8 col-centered">
+        <div class="form-group">
+          <%= f.label "Título" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Descrição" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Preço" %>
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Categoria" %>
+          <%= f.collection_select :category_id, @categories, :id, :category_name, {}, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Sub-categoria" %>
+          <% if @sub_categories %>
+            <%= f.collection_select :sub_category_id, @sub_categories, :id, :sub_category_name, {},
+            class:"form-control" %>
+          <% else %>
+            <select id="announcement_sub_category_id" name="announcement[sub_category_id]" class="form-control">
+          <% end %>
+        </div>
+
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <i class="icon-ok icon-white"></i> Salvar
+        <% end %>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.label "Descrição" %>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Preço" %>
-      <%= f.text_field :price, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Categoria" %>
-      <%= f.collection_select :category_id, @categories, :id, :category_name, {}, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Sub-categoria" %>
-      <% if @sub_categories %>
-        <%= f.collection_select :sub_category_id, @sub_categories, :id, :sub_category_name, {},
-        class:"form-control" %>
-      <% else %>
-        <select id="announcement_sub_category_id" name="announcement[sub_category_id]"
-        class="form-control">
-      <% end %>
-    </div>
-
-    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-    <i class="icon-ok icon-white"></i> Salvar
-    <% end %>
-
   </div>
 <% end %>

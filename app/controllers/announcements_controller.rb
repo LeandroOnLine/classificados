@@ -12,8 +12,8 @@ class AnnouncementsController < ApplicationController
 
     set_category
     if search_name != ''
-      @announcements = Announcement.where('UPPER(title) like UPPER(?) AND category_id = ?',
-                                          "%#{search_name.upcase}%, #{selected_category}")
+      @announcements = Announcement.where('UPPER(title) like UPPER(?) AND
+        category_id = ?', "%#{search_name.upcase}%, #{selected_category}")
     else
       @announcements = Announcement.order('created_at DESC').limit 5
     end
@@ -21,8 +21,7 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/1
   # GET /announcements/1.json
-  def show
-  end
+  def show() end
 
   # GET /announcements/new
   def new
@@ -40,11 +39,9 @@ class AnnouncementsController < ApplicationController
   # POST /announcements.json
   def create
     @announcement = Announcement.new(announcement_params)
-
     respond_to do |format|
       if @announcement.save
         @category = Category.find(@announcement.category_id)
-
         format.html { redirect_to @announcement, notice: 'Anúncio criado com sucesso!' }
         format.json { render :show, status: :created, location: @announcement }
       else

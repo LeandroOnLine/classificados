@@ -1,13 +1,12 @@
-function check_password(){
-  
+function check_password () {
   var password = document.getElementById('login_password');
   var password_confirmation = document.getElementById('login_password_confirmation');
 
-  if (password.value != password_confirmation.value) {
+  if (password.value !== password_confirmation.value) {
     alert('As senhas devem ser iguais.');
     password.value = '';
     password_confirmation.value = '';
-    password.focus();    
+    password.focus();
     return false;
   }
 
@@ -16,10 +15,10 @@ function check_password(){
     password.value = '';
     password_confirmation.value = '';
     password.focus();
-    return false; 
+    return false;
   }
 
-  var letters = /^(?=.*\d)(?=.*[a-z]).{6,}$/; 
+  var letters = /^(?=.*\d)(?=.*[a-z]).{6,}$/;
 
   if (password.value.match(letters)) {
     return true;
@@ -34,5 +33,5 @@ function check_password(){
 }
 
 function enable_submit(){
-  $('input[type="submit"]').prop('disabled',false)
+  $('input[type="submit"]').prop('disabled',false);
 }

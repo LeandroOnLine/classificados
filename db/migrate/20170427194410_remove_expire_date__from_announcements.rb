@@ -1,5 +1,0 @@
-class RemoveExpireDateFromAnnouncements < ActiveRecord::Migration[5.0]
-  def change
-    remove_column :announcements, :expire_date, :datetime
-  end
-end

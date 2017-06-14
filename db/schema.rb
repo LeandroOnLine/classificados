@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20170429142934) do
     t.decimal  "price"
     t.integer  "category_id"
     t.integer  "sub_category_id"
+    t.integer  "login_id"
+    t.datetime "expire_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"

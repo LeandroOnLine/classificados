@@ -7,34 +7,36 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
-    
+    <% if content_for? :head %>
+      <%= yield :head %>
+    <% end %>
   </head>
   <body>
-    
+
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <a class="navbar-brand" href="/" style="font-family:Tangerine;font-size:42px;font-color:white">Classificados Terê</a>
-        <ul class="nav navbar-nav navbar-right">            
+        <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li>
               <%= link_to "Meus anúncios", announcements_path, action: "edit", class: "navbar-custom"%>
-            </li>       
+            </li>
             <li>
               <a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a>
             </li>
-          <% else %>            
+          <% else %>
             <li>
-              <%= link_to ' Login', user_session_path, class: "glyphicon glyphicon-log-in navbar-custom" %>     
+              <%= link_to ' Login', user_session_path, class: "glyphicon glyphicon-log-in navbar-custom" %>
             </li>
           <% end %>
         </ul>
       </div>
     </nav>
     <br>
-    
-    <div class="container-fluid text-center">  
+
+    <div class="container-fluid text-center">
       <%= yield %>
     </div>
-  
+
   </body>
 </html>

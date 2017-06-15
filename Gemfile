@@ -44,6 +44,8 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 gem 'devise'
 
 gem 'rails_admin', '~> 1.1.1'
+# pre compile javascript required in content_for :head
+gem 'sprockets-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

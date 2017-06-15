@@ -247,6 +247,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails
   turbolinks (~> 5)
   twitter-bootstrap-rails!
   tzinfo-data
@@ -254,4 +255,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.0
+   1.15.1

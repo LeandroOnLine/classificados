@@ -17,7 +17,7 @@ class AnnouncementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create announcement" do
     assert_difference('Announcement.count') do
-      post announcements_url, params: { announcement: { category_id: @announcement.category_id, description: @announcement.description, expire_date: @announcement.expire_date, login_id: @announcement.login_id, price: @announcement.price, sub_category_id: @announcement.sub_category_id, title: @announcement.title } }
+      post announcements_url, params: { announcement: { category_id: @announcement.category_id, description: @announcement.description, expire_date: @announcement.expire_date, price: @announcement.price, sub_category_id: @announcement.sub_category_id, title: @announcement.title } }
     end
 
     assert_redirected_to announcement_url(Announcement.last)
@@ -34,7 +34,7 @@ class AnnouncementsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update announcement" do
-    patch announcement_url(@announcement), params: { announcement: { category_id: @announcement.category_id, description: @announcement.description, expire_date: @announcement.expire_date, login_id: @announcement.login_id, price: @announcement.price, sub_category_id: @announcement.sub_category_id, title: @announcement.title } }
+    patch announcement_url(@announcement), params: { announcement: { category_id: @announcement.category_id, description: @announcement.description, expire_date: @announcement.expire_date, price: @announcement.price, sub_category_id: @announcement.sub_category_id, title: @announcement.title } }
     assert_redirected_to announcement_url(@announcement)
   end
 

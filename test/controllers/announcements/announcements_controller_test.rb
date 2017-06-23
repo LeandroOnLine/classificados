@@ -17,7 +17,7 @@ class Announcements::AnnouncementsControllerTest < ActionDispatch::IntegrationTe
 
   test "should create announcements_announcement" do
     assert_difference('Announcements::Announcement.count') do
-      post announcements_announcements_url, params: { announcements_announcement: { category_id: @announcements_announcement.category_id, description: @announcements_announcement.description, expire_date: @announcements_announcement.expire_date, login_id: @announcements_announcement.login_id, price: @announcements_announcement.price, sub_category_id: @announcements_announcement.sub_category_id, title: @announcements_announcement.title } }
+      post announcements_announcements_url, params: { announcements_announcement: { category_id: @announcements_announcement.category_id, description: @announcements_announcement.description, expire_date: @announcements_announcement.expire_date, price: @announcements_announcement.price, sub_category_id: @announcements_announcement.sub_category_id, title: @announcements_announcement.title } }
     end
 
     assert_redirected_to announcements_announcement_url(Announcements::Announcement.last)
@@ -34,7 +34,7 @@ class Announcements::AnnouncementsControllerTest < ActionDispatch::IntegrationTe
   end
 
   test "should update announcements_announcement" do
-    patch announcements_announcement_url(@announcements_announcement), params: { announcements_announcement: { category_id: @announcements_announcement.category_id, description: @announcements_announcement.description, expire_date: @announcements_announcement.expire_date, login_id: @announcements_announcement.login_id, price: @announcements_announcement.price, sub_category_id: @announcements_announcement.sub_category_id, title: @announcements_announcement.title } }
+    patch announcements_announcement_url(@announcements_announcement), params: { announcements_announcement: { category_id: @announcements_announcement.category_id, description: @announcements_announcement.description, expire_date: @announcements_announcement.expire_date, price: @announcements_announcement.price, sub_category_id: @announcements_announcement.sub_category_id, title: @announcements_announcement.title } }
     assert_redirected_to announcements_announcement_url(@announcements_announcement)
   end
 

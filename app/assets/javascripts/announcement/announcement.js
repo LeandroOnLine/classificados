@@ -1,12 +1,22 @@
-// $(document).ready(function(){
-//   alert('carregado!');
-// });
+$(document).ready(function(){
+  // alert('carregado!');
+  set_select_event();
+});
 
+function set_select_event(){
+  $("#announcement_category_id").change(function(){
+    alert('Selecionado!');
 
-// $('#category').change(function(){
-//   alert( $(this).find(":selected").val() );
-// });
+    var data = $("#announcement_category_id").val();
 
-//$.get("test.php", function(data){
-//  alert("Data: " + data);
-//});
+    $.ajax({
+            type: "GET",
+            dataType: "json",
+            data: {"id": data},
+            url: "/sub_categories/fetch",
+            success: function(data){
+              alert(data);
+            }
+        });
+  });
+}

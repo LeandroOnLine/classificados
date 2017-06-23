@@ -5,6 +5,10 @@ class SubCategoriesController < ApplicationController
   # GET /sub_categories.json
   def index
     @sub_categories = SubCategory.all
+    # sub_category = set_sub_category
+    # respond_to do |format|
+    #   format.json {render json: sub_category.as_json}
+    # end
   end
 
   # GET /sub_categories/1
@@ -61,12 +65,23 @@ class SubCategoriesController < ApplicationController
     end
   end
 
+  def fetch
+ binding.pry
+    sub_category = sub_category_by_category_id
+    respond_t0o do |format|
+      format.json {render json: sub_category.as_json}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sub_category
-      @sub_category = SubCategory.find(params[:id])
+      @sub_category = SubCategory.all
     end
 
+    def sub_category_by_category_id
+      @sub_category = SubCategory.where(id_category: params[:id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_category_params
       params.require(:sub_category).permit(:sub_category_name, :category_id)

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :accounts
   get 'home/index'
   get 'home/logged'
   get 'home/search'

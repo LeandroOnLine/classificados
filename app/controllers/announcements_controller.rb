@@ -29,18 +29,20 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     set_category
+    set_sub_category_by(@categories[0][:id])
   end
 
   # GET /announcements/1/edit
   def edit
     set_category
-    set_sub_category
+    set_sub_category_by(@categories[0][:id])
   end
 
   # POST /announcements
   # POST /announcements.json
   def create
     @announcement = Announcement.new(announcement_params)
+    @announcement.user_id = current_user[:id]
     respond_to do |format|
       if @announcement.save
         @category = Category.find(@announcement.category_id)
@@ -96,7 +98,7 @@ class AnnouncementsController < ApplicationController
     @categories = Category.all
   end
 
-  def set_sub_category
-    @sub_categories = SubCategory.all
+  def set_sub_category_by(category_id)
+    @sub_categories = SubCategory.where(category_id: category_id)
   end
 end

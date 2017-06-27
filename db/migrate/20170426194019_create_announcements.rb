@@ -6,7 +6,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.0]
       t.decimal :price
       t.integer :category_id
       t.integer :sub_category_id
-      t.integer :login_id
+      t.integer :user_id
       t.datetime :expire_date
 
       t.timestamps

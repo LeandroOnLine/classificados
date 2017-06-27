@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 /db/*.sqlite
+/doc/*
 .yardoc
 
 # Ignore Byebug command history file.

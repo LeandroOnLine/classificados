@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 function set_select_event(){
   $("#announcement_category_id").change(function(){
-    alert('Selecionado!');
+    // alert('Selecionado!');
 
     var data = $("#announcement_category_id").val();
 
@@ -15,7 +15,10 @@ function set_select_event(){
             data: {"id": data},
             url: "/sub_categories/fetch",
             success: function(data){
-              alert(data);
+              for (var i in data) {
+                var texto = data[i]["id"] + " " + data[i]["sub_category_name"]
+             }
+            alert(texto);
             }
         });
   });

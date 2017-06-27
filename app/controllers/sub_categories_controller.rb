@@ -14,6 +14,7 @@ class SubCategoriesController < ApplicationController
   # GET /sub_categories/1
   # GET /sub_categories/1.json
   def show
+    @sub_category = SubCategory.find(params[:id])
   end
 
   # GET /sub_categories/new
@@ -66,9 +67,8 @@ class SubCategoriesController < ApplicationController
   end
 
   def fetch
- binding.pry
     sub_category = sub_category_by_category_id
-    respond_t0o do |format|
+    respond_to do |format|
       format.json {render json: sub_category.as_json}
     end
   end
@@ -80,7 +80,8 @@ class SubCategoriesController < ApplicationController
     end
 
     def sub_category_by_category_id
-      @sub_category = SubCategory.where(id_category: params[:id])
+      @sub_category = SubCategory.select(:id, :sub_category_name).
+                                  where(category_id: params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_category_params

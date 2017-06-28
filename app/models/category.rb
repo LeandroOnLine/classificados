@@ -1,4 +1,3 @@
 # Category
-class Category < ApplicationRecord
-  belongs_to(:announcement)
+class Category < ApplicationRecord  
 end

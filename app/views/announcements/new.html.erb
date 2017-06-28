@@ -2,10 +2,8 @@
   <%= javascript_include_tag('announcement/announcement.js') %>
 <% end %>
 
-<div class="well well-sm col-md-8 col-centered">
+<div class="well well-sm col-md-6 col-centered">
   <h2 class="text-center">Novo anúncio</h2>
 </div>
 
 <%= render 'form', announcement: @announcement %>
-<br>
-<%= link_to 'Voltar', announcements_path, class: "btn btn-default" %>

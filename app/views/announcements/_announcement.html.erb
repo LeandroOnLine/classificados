@@ -1,40 +1,29 @@
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Título</th>
-      <th>Descrição</th>
-      <th>Preço</th>
-      <th>Desde</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @announcements.each do |announcement| %>
-      <tr>
-        <td><%= announcement.title %></td>
-        <td><%= announcement.description %></td>
-        <td><%= "R$"+ announcement.price.to_s %></td>
-        <td><%= announcement.created_at.strftime("%d/%m/%Y") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <% @announcements.each do |announcement| %>
-  <div class="container">
-	  <div class="row">
-  	  <div class="col-sm-3">
-        <div class="card">
-          <img class="card-img-top" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=250×100-1&w=250&h=100" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">><%= announcement.title %></h4>
-            <p class="card-text"><%= announcement.description %></p>
-            <p class="card-text"><%= "R$"+ announcement.price.to_s %></p>
-            <p class="card-text"><%= announcement.created_at.strftime("%d/%m/%Y") %> </p>
-            <a href="#" class="btn btn-primary">Visualizar</a>
-          </div>
-        </div>
-      </div>
-	  </div> <!-- row -->
-  </div> <!-- container -->
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+      <td>
+        <!-- <div class="container"> -->
+          <div class="row">
+            <div class="col-sm-2">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=250×100-1&w=250&h=100" alt="Imagem do anúncio" width="80" height="60">
+            </div>
+            <div class="col-sm-2">
+              <h4><%= announcement.title %></h4>
+            </div>
+            <div class="col-sm-4">
+              <h5 class="text-left"><%= announcement.description %></h5>
+            </div>
+            <div class="col-sm-2">
+              <h4><%= "R$"+ announcement.price.to_s %></h4>
+              <h4><%= announcement.created_at.strftime("%d/%m/%Y") %> </h4>
+            </div>
+            <div class="col-sm-1">
+              <a href="#" class="btn btn-primary">Visualizar</a>
+            </div>
+          </div>          
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

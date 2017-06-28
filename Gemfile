@@ -60,10 +60,14 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-expectations'
+  # gem 'solargraph'
+
+  # combo for test :)
   gem 'faker'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  # gem 'solargraph'
+  gem 'timecop'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do

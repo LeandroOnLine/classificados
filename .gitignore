@@ -12,7 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-/db/*.sqlite
+/db/*.sqlite3
 /doc/*
 .yardoc
 

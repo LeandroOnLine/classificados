@@ -45,7 +45,7 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 
 gem 'devise'
 
-gem 'rails_admin', '~> 1.1.1'
+gem 'rails_admin'
 # pre compile javascript required in content_for :head
 gem 'sprockets-rails'
 
@@ -61,6 +61,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-expectations'
   gem 'faker'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  # gem 'solargraph'
 end
 
 group :development do

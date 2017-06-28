@@ -60,6 +60,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-expectations'
+  gem 'faker'
 end
 
 group :development do

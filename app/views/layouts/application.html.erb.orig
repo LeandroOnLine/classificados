@@ -38,9 +38,18 @@
       </div>
     </nav>
   </header>
+<<<<<<< HEAD
+    <div class="row">
+      <%= yield %>
+    </div>
+    <footer class="row">
+
+    </footer>
+=======
     <%= yield %>
   <footer class="row">
   </footer>
+>>>>>>> 49de8fe32fefda87e6d2d8d9fe23a2ba42f4b79e
 </div>
 
 

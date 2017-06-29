@@ -1,12 +1,20 @@
+<<<<<<< HEAD
+
+=======
 <div class="row">
+>>>>>>> 49de8fe32fefda87e6d2d8d9fe23a2ba42f4b79e
   <div role="main" class="col-md-8 col-md-push-2">
     <div >
       <% @announcements.each do |announcement| %>
         <table class="table table-bordered">
           <tbody>
             <tr>
+<<<<<<< HEAD
+              <td>
+=======
             <td>
               <!-- <div class="container"> -->
+>>>>>>> 49de8fe32fefda87e6d2d8d9fe23a2ba42f4b79e
                 <div class="row">
                   <div class="col-sm-2">
                     <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=250×100-1&w=250&h=100" alt="Imagem do anúncio" width="80" height="60">
@@ -29,7 +37,11 @@
             </tr>
           </tbody>
         </table>
+<<<<<<< HEAD
+    <% end %>
+=======
       <% end %>
+>>>>>>> 49de8fe32fefda87e6d2d8d9fe23a2ba42f4b79e
     </div>
   </div>
   <aside role="complementary" class="col-md-2 col-md-push-4">
@@ -37,4 +49,7 @@
   <nav class="col-md-2 col-md-pull-10">
     <%= render '/layouts/filter' %>
   </nav>
+<<<<<<< HEAD
+=======
 </div>
+>>>>>>> 49de8fe32fefda87e6d2d8d9fe23a2ba42f4b79e

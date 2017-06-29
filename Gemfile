@@ -68,6 +68,13 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'timecop'
   gem 'simplecov', :require => false, :group => :test
+
+  # visual studio code
+  gem 'fasterer'
+  gem 'fastri'
+  gem 'ruby-lint'
+  gem 'reek'
+  gem 'rubocop', '~> 0.49.1', require: false
 end
 
 group :development do

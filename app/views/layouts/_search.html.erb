@@ -1,7 +1,7 @@
 
-<div class="form-inline">
+<div class="form-inline text-center">
   <%= form_tag announcements_path, method: :get, class: "navbar-form", responsive: true do %>
-    <div>      
+    <div>
       <%= text_field_tag :search_name, @search_name, placeholder: 'Digite aqui sua pesquisa', class: "form-control" %>
       <%= button_to "Buscar", nil, class: "btn btn-default" %>
     </div>

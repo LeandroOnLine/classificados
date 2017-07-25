@@ -18,9 +18,7 @@ default: &default
   adapter: postgresql
   encoding: UTF8
   host: localhost
-  port: 5432
-  username: postgres
-  password: 123456
+  # port: 5423
   # schema_search_path: "classificados"
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -29,13 +27,17 @@ default: &default
 development:
   <<: *default
   database: classificados_development
+  username: postgres
+  # password: <%= ENV['SECRET_KEY_BASE'] %>
 
 test:
   <<: *default
   database: classificados_test
+  username: postgres
+  # password: <%= ENV['SECRET_KEY_BASE'] %>
 
 production:
   <<: *default
   database: classificados_production
   username: postgres
-  password: 123456 #<%= ENV['CLASSIFICADOS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['CLASSIFICADOS_DATABASE_PASSWORD'] %>

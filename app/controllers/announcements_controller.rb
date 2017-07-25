@@ -29,7 +29,7 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     set_category
-    set_sub_category_by(@categories[0][:id])
+    set_sub_category_by(@categories[0][:id]) unless @categories.nil?
   end
 
   # GET /announcements/1/edit

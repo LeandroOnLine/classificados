@@ -32,7 +32,7 @@ RSpec.describe "Announcement", type: :model do
   end
 
   it "can't save without sub_category_id" do
-    announcement = announcement = Announcement.new(user_id: 1,
+    announcement = Announcement.new(user_id: 1,
                                     title: 'titulo',
                                     description: 'descrição',
                                     category_id: 1,

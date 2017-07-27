@@ -45,6 +45,10 @@ gem 'rails_admin'
 # pre compile javascript required in content_for :head
 gem 'sprockets-rails'
 
+# pagination
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -53,7 +57,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-awesome_print'
-  gem 'rspec' 
+  gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-expectations'
   # gem 'solargraph'

@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Classificados</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Classificados</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <% if content_for? :head %>
-      <%= yield :head %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+  <% if content_for? :head %>
+  <%= yield :head %>
+  <% end %>
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <a class="navbar-brand" href="/" style="font-family:Lato;font-size:28px;font-color:white">Classificados Terê</a>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+              <li>
+                <%= link_to "Meus anúncios", announcements_path, action: "edit", class: "navbar-custom"%>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to ' Login', user_session_path, class: "navbar-custom" %>
+              </li>
+              <% end %>
+              <li>
+                <!-- <div class="form-group pull-left"> -->
+                <%= button_to 'Novo anúncio', new_announcement_path,
+                :method => :get,
+                class: "btn btn-primary navbar-btn" %>
+                <!-- </div> -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% else %>
+    <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-  </head>
-  <body>
+    <% end %>
 
-
-<div class="container">
-  <header class="row">
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <a class="navbar-brand" href="/" style="font-family:Tangerine;font-size:42px;font-color:white">Classificados Terê</a>
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to "Meus anúncios", announcements_path, action: "edit", class: "navbar-custom"%>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to ' Login', user_session_path, class: "glyphicon glyphicon glyphicon-user navbar-custom" %>
-            </li>
-          <% end %>
-          <li>
-            <div class="form-group pull-left">
-              <%= link_to 'Novo anúncio', new_announcement_path, class: "btn btn-default navbar-btn" %>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
     <%= yield %>
-  <footer class="row">
-  </footer>
-</div>
 
-
-  </body>
+    <footer class="row"></footer>
+  </div>
+</body>
 </html>

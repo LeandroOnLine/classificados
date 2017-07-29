@@ -2,8 +2,13 @@
   <%= javascript_include_tag('announcement/announcement.js') %>
 <% end %>
 
-<div class="well well-sm col-md-6 col-centered">
-  <h2 class="text-center">Novo anúncio</h2>
-</div>
+<div class="container">
+  <div class="col-md-6  col-centered col-md-push-2">
 
-<%= render 'form', announcement: @announcement %>
+    <div class="well well-sm">
+      <h2 class="text-center">Novo anúncio</h2>
+    </div>
+
+    <%= render 'form', announcement: @announcement %>
+  </div>
+</div>

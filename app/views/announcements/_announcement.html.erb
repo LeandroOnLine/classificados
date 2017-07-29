@@ -30,6 +30,7 @@
           </tbody>
         </table>
       <% end %>
+      <%= will_paginate @announcements, renderer: BootstrapPagination::Rails %>
     </div>
   </div>
   <aside role="complementary" class="col-md-2 col-md-push-4">

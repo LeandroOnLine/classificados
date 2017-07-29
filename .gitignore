@@ -16,6 +16,7 @@
 /doc/*
 .yardoc
 coverage
+.vscode
 
 # Ignore Byebug command history file.
 .byebug_history

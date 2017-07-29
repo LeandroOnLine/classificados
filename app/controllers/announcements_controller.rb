@@ -5,7 +5,6 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
   def index
-
     search_name = params[:search_name]
     selected_category = params[:category]
 
@@ -14,9 +13,11 @@ class AnnouncementsController < ApplicationController
     set_category
     if search_name != ''
       @announcements = Announcement.where('UPPER(title) like UPPER(?) AND
-        category_id = ?', "%#{search_name.upcase}%, #{selected_category}")
+        category_id = ?', "%#{search_name.upcase}%, #{selected_category}").
+        paginate(page: params[:page], per_page: 5)
     else
-      @announcements = Announcement.order('created_at DESC').limit 5
+      @announcements = Announcement.order('created_at DESC').
+      paginate(page: params[:page], per_page: 5)
     end
   end
 
@@ -29,7 +30,7 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     set_category
-    set_sub_category_by(@categories[0][:id])
+    set_sub_category_by(@categories[0][:id]) if @categories.any?
   end
 
   # GET /announcements/1/edit

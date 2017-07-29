@@ -13,7 +13,7 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 #
 # Compared to earlier versions of this generator, there is very limited use of
-# stubs and message expectations in this spec.  Stubs are only used when there
+# stubs and message expec'  tations in this spec.  Stubs are only used when there
 # is no simpler way to get a handle on the object needed for the example.
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.

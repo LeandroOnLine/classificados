@@ -11,7 +11,7 @@ class AnnouncementsController < ApplicationController
     @search_name = search_name
 
     set_category
-    if search_name != ''
+    if !search_name.nil? && !search_name.empty?
       @announcements = Announcement.where('UPPER(title) like UPPER(?) AND
         category_id = ?', "%#{search_name.upcase}%, #{selected_category}").
         paginate(page: params[:page], per_page: 5)

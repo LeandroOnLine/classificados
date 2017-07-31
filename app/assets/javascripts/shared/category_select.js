@@ -3,8 +3,8 @@ $(document).ready(function(){
 });
 
 function set_select_event(){
-  $("#announcement_category_id").change(function(){
-    var data = $("#announcement_category_id").val();
+  $("#category_id").change(function(){
+    var data = $("#category_id").val();
 
     $.ajax({
             type: "GET",
@@ -36,5 +36,5 @@ function addSubCategory(data){
 }
 
 function getSubCategorySelectElement() {
-  return document.getElementById("announcement_sub_category_id");
+  return document.getElementById("sub_category_id");
 }

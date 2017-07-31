@@ -16,7 +16,7 @@
     <div class="form-group">
       <label>Categoria</label>
       <%= select_tag "category", options_from_collection_for_select(@categories,
-            "id", "category_name"),id: "category_id", class: "form-control"%>
+            "id", "category_name"),include_blank: true, id: "category_id", class: "form-control"%>
     </div>
 
     <div class="form-group">

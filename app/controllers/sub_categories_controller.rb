@@ -67,9 +67,8 @@ class SubCategoriesController < ApplicationController
   end
 
   def fetch
-    sub_category = sub_category_by_category_id
     respond_to do |format|
-      format.json {render json: sub_category.as_json}
+      format.json {render json: sub_category_by_category_id.as_json}
     end
   end
 

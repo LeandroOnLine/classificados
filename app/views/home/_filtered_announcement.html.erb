@@ -1,12 +1,11 @@
-<div class="row">
-  <div role="main" class="col-md-8 col-md-push-2">
+
+  <div role="main" class="col-md-8">
     <div >
       <% @announcements.each do |announcement| %>
         <table class="table table-bordered">
           <tbody>
             <tr>
-            <td>
-              <!-- <div class="container"> -->
+              <td>
                 <div class="row">
                   <div class="col-sm-2">
                     <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=250×100-1&w=250&h=100" alt="Imagem do anúncio" width="80" height="60">
@@ -33,9 +32,3 @@
       <%= will_paginate @announcements, renderer: BootstrapPagination::Rails %>
     </div>
   </div>
-  <aside role="complementary" class="col-md-2 col-md-push-4">
-  </aside>
-  <nav class="col-md-2 col-md-pull-10">
-    <%= render partial: '/layouts/filter' %>
-  </nav>
-</div>

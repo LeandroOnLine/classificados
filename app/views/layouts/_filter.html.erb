@@ -1,20 +1,32 @@
-<h2>
-  <span class="label label-primary">Pesquisa</span>
-</h2>
-<%= form_tag announcements_path, method: :get, class: "container-fluid", responsive: true do %>
+<div class="col-md-2">
   <div class="form-group">
-    <%= text_field_tag :search_name, @search_name, placeholder: 'Digite aqui sua pesquisa', class: "form-control" %>
+      <label style="font-size:20px;" class="label label-primary center-block">Pesquisa
+      </label>
   </div>
 
-  <div class="form-group">
-    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "category_name"), class: "form-control"%>
-  </div>
+  <%= form_tag home_index_path, method: :get,
+    responsive: true do %>
 
-  <div class="form-group">
-    <select id="sub_category_id" name="announcement[sub_category_id]" class="form-control">
-    </select>
-  </div>
-<div class="form-group">
-<%= button_to "Buscar", nil, class: "btn btn-default" %>
+    <div class="form-group">
+      <%= text_field_tag :search_name, @search_name,
+                         placeholder: 'Digite aqui...',
+                         class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Categoria</label>
+      <%= select_tag "category", options_from_collection_for_select(@categories,
+            "id", "category_name"),id: "category_id", class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <label>Sub categoria</label>
+      <select id="sub_category_id" name="announcement[sub_category_id]" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+      <%= button_to "Buscar", nil, class: "btn btn-default" %>
+    </div>
+
+  <% end %>
 </div>
-<% end %>

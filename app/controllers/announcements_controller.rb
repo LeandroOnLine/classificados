@@ -5,8 +5,8 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
   def index
-    search_name = params[:search_name]
-    selected_category = params[:category]
+    search_name = params[:search_name] if params[:search_name]
+    selected_category = params[:category] if params[:category]
 
     @search_name = search_name
 

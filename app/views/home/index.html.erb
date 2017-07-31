@@ -1,3 +1,10 @@
+<!-- <%= render partial: "layouts/search" %> -->
+<div class="row">
 
-<%= render partial: "layouts/search" %>
-<%= render partial: "announcements/announcement" %>
+  <%= render partial: '/layouts/filter' %>
+
+  <%= render partial: "home/filtered_announcement" %>
+
+  <%= render partial: "layouts/google_ads" %>
+
+</div>

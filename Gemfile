@@ -85,6 +85,9 @@ group :development do
   gem 'ruby-lint'
   gem 'reek'
   gem 'rubocop', '~> 0.49.1', require: false
+
+  #static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+  gem 'brakeman', :require => false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

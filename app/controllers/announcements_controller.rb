@@ -43,8 +43,22 @@ class AnnouncementsController < ApplicationController
   # POST /announcements
   # POST /announcements.json
   def create
-    @announcement = Announcement.new(announcement_params)
-    @announcement.user_id = current_user[:id]
+    @announcement = Announcement.new(title: announcement_params[:title],
+                                     description: announcement_params[:description],
+                                     category_id: announcement_params[:category_id],
+                                     sub_category_id: announcement_params[:sub_category_id],
+                                     price: announcement_params[:price],
+                                     user_id: current_user[:id])
+
+    # @image = Image.new(params[:announcement][:data])
+    if params[:data]
+      @image = Image.new(data: params[:data].tempfile.read,
+                         data_file_name: params[:data].original_filename,
+                         data_content_type: params[:data].content_type)
+
+      @announcement.images << @image
+    end
+
     respond_to do |format|
       if @announcement.save
         @category = Category.find(@announcement.category_id)
@@ -93,7 +107,7 @@ class AnnouncementsController < ApplicationController
   def announcement_params
     params.require(:announcement).permit(:title, :description, :price,
                                          :category_id, :sub_category_id,
-                                         :user_id)
+                                         :user_id, :data)
   end
 
   def set_category

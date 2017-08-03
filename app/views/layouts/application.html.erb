@@ -28,7 +28,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
                 <li>
-                  <%= link_to "Meus anúncios", announcements_path, action: "edit", class: "navbar-custom"%>
+                  <%= link_to "Minha conta", accounts_path, action: "edit", class: "navbar-custom"%>
                 </li>
               <% else %>
                 <li>
@@ -36,7 +36,7 @@
                 </li>
                 <% end %>
                 <li>
-                  <%= button_to 'Novo anúncio', new_announcement_path,
+                  <%= button_to 'Anunciar', new_announcement_path,
                       :method => :get,
                       class: "btn btn-primary navbar-btn" %>
                 </li>

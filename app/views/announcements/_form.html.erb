@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'jasnybootstrap/jasny-bootstrap.min.css' %>
+  <%= javascript_include_tag 'jasnybootstrap/jasny-bootstrap.min.js' %>
+<% end %>
+
 <%= form_for(announcement) do |f| %>
 <% if announcement.errors.any? %>
   <div id="error_explanation">
@@ -43,6 +48,24 @@
 <div class="form-group">
   <%= f.label "Preço" %>
   <%= f.text_field :price, class: "form-control" %>
+</div>
+
+<!-- <%= f.file_field :data %> -->
+
+<div class="form-group">
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+      <img data-src="holder.js/100%x100%" alt="">
+    </div>
+    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+    <div>
+      <span class="btn btn-default btn-file">
+      <span class="fileinput-new">Selecionar</span>
+      <span class="fileinput-exists">Alterar</span>
+      <input type="file" name="data"  accept="image/*"></span>
+      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
+    </div>
+  </div>
 </div>
 
 <div class="form-group">

@@ -1,26 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Accounts</h1>
+<h1>Minha conta</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Index</th>
-      <th>User</th>
+      <th>Nome</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @accounts.each do |account| %>
       <tr>
-        <td><%= account.index %></td>
-        <td><%= account.user_id %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @user.user_name %></td>
+        <td><%= link_to 'Edit', edit_account_path(@user) %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 

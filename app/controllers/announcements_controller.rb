@@ -2,8 +2,6 @@ class AnnouncementsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
 
-  # GET /announcements
-  # GET /announcements.json
   def index
     search_name = params[:search_name] if params[:search_name]
     selected_category = params[:category] if params[:category]
@@ -22,26 +20,19 @@ class AnnouncementsController < ApplicationController
     end
   end
 
-  # GET /announcements/1
-  # GET /announcements/1.json
-
   def show() end
 
-  # GET /announcements/new
   def new
     @announcement = Announcement.new
     set_category
     set_sub_category_by(@categories[0][:id]) if @categories.any?
   end
 
-  # GET /announcements/1/edit
   def edit
     set_category
     set_sub_category_by(@categories[0][:id])
   end
 
-  # POST /announcements
-  # POST /announcements.json
   def create
     @announcement = Announcement.new(title: announcement_params[:title],
                                      description: announcement_params[:description],
@@ -49,15 +40,14 @@ class AnnouncementsController < ApplicationController
                                      sub_category_id: announcement_params[:sub_category_id],
                                      price: announcement_params[:price],
                                      user_id: current_user[:id])
-
-    # @image = Image.new(params[:announcement][:data])
-    if params[:data]
-      @image = Image.new(data: params[:data].tempfile.read,
-                         data_file_name: params[:data].original_filename,
-                         data_content_type: params[:data].content_type)
-
-      @announcement.images << @image
-    end
+                                     
+    # if params[:data]
+    #   @image = Image.new(data: params[:data].tempfile,
+    #                      data_file_name: params[:data].original_filename,
+    #                      data_content_type: params[:data].content_type)
+    #
+    #   @announcement.images << @image
+    # end
 
     respond_to do |format|
       if @announcement.save

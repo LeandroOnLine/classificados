@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt'
 
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 
@@ -50,7 +50,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 # image manipulation
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
+gem 'paperclip_database'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,16 +62,16 @@ group :development, :test do
   # gem 'pry-rails'
   # gem 'pry-awesome_print'
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'rspec-expectations'
+  gem 'rspec-rails'
   # gem 'solargraph'
 
   # combo for test :)
-  gem 'faker'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'simplecov', require: false, group: :test
   gem 'timecop'
-  gem 'simplecov', :require => false, :group => :test
 
 end
 
@@ -88,6 +89,7 @@ group :development do
   gem 'ruby-lint'
   gem 'reek'
   gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rcodetools'
 
   #static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
   gem 'brakeman', :require => false

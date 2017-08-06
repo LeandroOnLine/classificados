@@ -12,8 +12,8 @@ class AnnouncementsController < ApplicationController
     if !search_name.nil? && !search_name.empty? &&
        !selected_category.nil? && !selected_category.empty?
       @announcements = Announcement.where('UPPER(title) like UPPER(?) AND
-        category_id = ?', "%#{search_name.upcase}%, #{selected_category}").
-        paginate(page: params[:page], per_page: 5)
+        category_id = ?', "%#{search_name.upcase}%, #{selected_category}")
+                                   .paginate(page: params[:page], per_page: 5)
     else
       @announcements = Announcement.order('created_at DESC').
       paginate(page: params[:page], per_page: 5)
@@ -34,27 +34,21 @@ class AnnouncementsController < ApplicationController
   end
 
   def create
-    @announcement = Announcement.new(title: announcement_params[:title],
-                                     description: announcement_params[:description],
-                                     category_id: announcement_params[:category_id],
-                                     sub_category_id: announcement_params[:sub_category_id],
-                                     price: announcement_params[:price],
-                                     user_id: current_user[:id])
-                                     
-    # if params[:data]
-    #   @image = Image.new(data: params[:data].tempfile,
-    #                      data_file_name: params[:data].original_filename,
-    #                      data_content_type: params[:data].content_type)
-    #
-    #   @announcement.images << @image
-    # end
+    @announcement = Announcement.new(announcement_params)
+    @announcement.user_id = current_user[:id]
+    if params[:image]
+\      @image = Image.new(image_params)
+      @image.announcement = @announcement
+      @announcement.images << @image
+    end
 
     respond_to do |format|
       if @announcement.save
-        @category = Category.find(@announcement.category_id)
         format.html { redirect_to @announcement, notice: 'Anúncio criado com sucesso!' }
         format.json { render :show, status: :created, location: @announcement }
       else
+        set_category
+        set_sub_category_by(@categories[0][:id]) if @categories.any?
         format.html { render :new }
         format.json { render json: @announcement.errors, status: :unprocessable_entity }
       end
@@ -97,7 +91,11 @@ class AnnouncementsController < ApplicationController
   def announcement_params
     params.require(:announcement).permit(:title, :description, :price,
                                          :category_id, :sub_category_id,
-                                         :user_id, :data)
+                                         :user_id, :image)
+  end
+
+  def image_params
+    params.permit(:image)
   end
 
   def set_category

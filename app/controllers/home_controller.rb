@@ -1,6 +1,6 @@
 # home controller
 class HomeController < ApplicationController
-  def index
+  def index    
     search_name = params[:search_name] if params[:search_name]
     selected_category = params[:category] if params[:category]
     page = params[:page] if params[:page]
@@ -30,7 +30,7 @@ class HomeController < ApplicationController
   private
 
   def set_category
-    @categories = Category.all
+    @categories = Category.select(:id, :category_name)
   end
 
   def announcement_params

@@ -34,7 +34,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def create
-    @announcement = Announcement.nconfigew(announcement_params)
+    @announcement = Announcement.new(announcement_params)
     @announcement.user_id = current_user
     [:id]
     if params[:image]

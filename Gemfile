@@ -55,15 +55,16 @@ gem 'paperclip_database'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  # gem 'byebug', platform: :mri
-  # gem 'pry-byebug'
-  # gem 'better_errors'
-  # gem 'pry'
-  # gem 'pry-rails'
-  # gem 'pry-awesome_print'
+  gem 'byebug', platform: :mri
+  gem 'pry-byebug'
+  gem 'better_errors'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-awesome_print'
   gem 'rspec'
   gem 'rspec-expectations'
   gem 'rspec-rails'
+  gem 'rsense'
   # gem 'solargraph'
 
   # combo for test :)
